@@ -1,0 +1,4 @@
+(fp_lib_table
+	(version 7)
+	(lib (name "TQL851CSV33_RLG") (type "KiCad") (uri "${KIPRJMOD}/TQL851CSV33_RLG") (options "") (descr ""))
+)
