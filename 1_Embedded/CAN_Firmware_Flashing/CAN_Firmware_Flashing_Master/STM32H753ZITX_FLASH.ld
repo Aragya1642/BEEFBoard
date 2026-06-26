@@ -166,6 +166,19 @@ SECTIONS
     . = ALIGN(8);
   } >RAM_D1
 
+  /* RAM-disk backing store for FatFs.
+    NOLOAD  -> not zero-filled at startup, not stored in flash (f_mkfs formats it).
+    >RAM_D1 -> placed in AXI SRAM @ 0x24000000, as required (not DTCM). */
+  .ramdisk (NOLOAD) :
+  {
+    . = ALIGN(4);
+    _sramdisk = .;
+    KEEP(*(.ramdisk))
+    . = ALIGN(4);
+    _eramdisk = .;
+  } >RAM_D1
+
+
   /* Remove information from the standard libraries */
   /DISCARD/ :
   {
