@@ -1,0 +1,6 @@
+[submodule "1_Embedded/openblt"]
+	path = 1_Embedded/openblt
+	url = https://github.com/feaser/openblt.git
+[submodule "1_Embedded/libmicroblt"]
+	path = 1_Embedded/libmicroblt
+	url = https://github.com/feaser/libmicroblt.git
