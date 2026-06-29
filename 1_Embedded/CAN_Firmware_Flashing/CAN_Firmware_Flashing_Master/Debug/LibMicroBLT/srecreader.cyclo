@@ -1,0 +1,14 @@
+../LibMicroBLT/srecreader.c:146:25:SRecReaderGet	1
+../LibMicroBLT/srecreader.c:170:13:SRecReaderInit	1
+../LibMicroBLT/srecreader.c:183:13:SRecReaderTerminate	1
+../LibMicroBLT/srecreader.c:197:16:SRecReaderFileOpen	21
+../LibMicroBLT/srecreader.c:382:13:SRecReaderFileClose	3
+../LibMicroBLT/srecreader.c:423:16:SRecReaderSegmentGetCount	5
+../LibMicroBLT/srecreader.c:456:17:SRecReaderSegmentGetInfo	10
+../LibMicroBLT/srecreader.c:506:13:SRecReaderSegmentOpen	7
+../LibMicroBLT/srecreader.c:559:24:SRecReaderSegmentGetNextData	19
+../LibMicroBLT/srecreader.c:713:16:SRecReaderCompareSegments	6
+../LibMicroBLT/srecreader.c:755:16:SRecReaderParseLine	20
+../LibMicroBLT/srecreader.c:917:22:SRecReaderGetLineType	9
+../LibMicroBLT/srecreader.c:961:16:SRecReaderVerifyChecksum	5
+../LibMicroBLT/srecreader.c:1020:16:SRecReaderHexStringToByte	6

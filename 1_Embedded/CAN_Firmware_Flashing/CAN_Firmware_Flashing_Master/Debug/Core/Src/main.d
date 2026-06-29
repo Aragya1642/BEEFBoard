@@ -48,7 +48,24 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/CAN_Firmware_Flashing/CAN_Firmware_Flashing_Master/FatFs/ff.h \
  C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/CAN_Firmware_Flashing/CAN_Firmware_Flashing_Master/FatFs/integer.h \
  C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/CAN_Firmware_Flashing/CAN_Firmware_Flashing_Master/FatFs/ffconf.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/stream_buffer.h
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/stream_buffer.h \
+ C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/CAN_Firmware_Flashing/CAN_Firmware_Flashing_Master/MicroTBX/microtbx.h \
+ C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/CAN_Firmware_Flashing/CAN_Firmware_Flashing_Master/App/tbx_conf.h \
+ C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/CAN_Firmware_Flashing/CAN_Firmware_Flashing_Master/MicroTBX/tbx_platform.h \
+ C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/CAN_Firmware_Flashing/CAN_Firmware_Flashing_Master/MicroTBX/tbx_port.h \
+ C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/CAN_Firmware_Flashing/CAN_Firmware_Flashing_Master/MicroTBX/tbx_types.h \
+ C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/CAN_Firmware_Flashing/CAN_Firmware_Flashing_Master/MicroTBX/tbx_assert.h \
+ C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/CAN_Firmware_Flashing/CAN_Firmware_Flashing_Master/MicroTBX/tbx_critsect.h \
+ C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/CAN_Firmware_Flashing/CAN_Firmware_Flashing_Master/MicroTBX/tbx_heap.h \
+ C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/CAN_Firmware_Flashing/CAN_Firmware_Flashing_Master/MicroTBX/tbx_list.h \
+ C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/CAN_Firmware_Flashing/CAN_Firmware_Flashing_Master/MicroTBX/tbx_mempool.h \
+ C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/CAN_Firmware_Flashing/CAN_Firmware_Flashing_Master/MicroTBX/tbx_random.h \
+ C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/CAN_Firmware_Flashing/CAN_Firmware_Flashing_Master/MicroTBX/tbx_checksum.h \
+ C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/CAN_Firmware_Flashing/CAN_Firmware_Flashing_Master/MicroTBX/tbx_crypto.h \
+ C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/CAN_Firmware_Flashing/CAN_Firmware_Flashing_Master/LibMicroBLT/microblt.h \
+ C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/CAN_Firmware_Flashing/CAN_Firmware_Flashing_Master/LibMicroBLT/port.h \
+ C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/CAN_Firmware_Flashing/CAN_Firmware_Flashing_Master/App/update.h \
+ C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/CAN_Firmware_Flashing/CAN_Firmware_Flashing_Master/App/blt_port.h
 ../Core/Inc/main.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../Core/Inc/stm32h7xx_hal_conf.h:
@@ -100,3 +117,20 @@ C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/CAN_Firmware_Flashing/CA
 C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/CAN_Firmware_Flashing/CAN_Firmware_Flashing_Master/FatFs/integer.h:
 C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/CAN_Firmware_Flashing/CAN_Firmware_Flashing_Master/FatFs/ffconf.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/stream_buffer.h:
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/CAN_Firmware_Flashing/CAN_Firmware_Flashing_Master/MicroTBX/microtbx.h:
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/CAN_Firmware_Flashing/CAN_Firmware_Flashing_Master/App/tbx_conf.h:
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/CAN_Firmware_Flashing/CAN_Firmware_Flashing_Master/MicroTBX/tbx_platform.h:
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/CAN_Firmware_Flashing/CAN_Firmware_Flashing_Master/MicroTBX/tbx_port.h:
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/CAN_Firmware_Flashing/CAN_Firmware_Flashing_Master/MicroTBX/tbx_types.h:
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/CAN_Firmware_Flashing/CAN_Firmware_Flashing_Master/MicroTBX/tbx_assert.h:
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/CAN_Firmware_Flashing/CAN_Firmware_Flashing_Master/MicroTBX/tbx_critsect.h:
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/CAN_Firmware_Flashing/CAN_Firmware_Flashing_Master/MicroTBX/tbx_heap.h:
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/CAN_Firmware_Flashing/CAN_Firmware_Flashing_Master/MicroTBX/tbx_list.h:
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/CAN_Firmware_Flashing/CAN_Firmware_Flashing_Master/MicroTBX/tbx_mempool.h:
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/CAN_Firmware_Flashing/CAN_Firmware_Flashing_Master/MicroTBX/tbx_random.h:
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/CAN_Firmware_Flashing/CAN_Firmware_Flashing_Master/MicroTBX/tbx_checksum.h:
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/CAN_Firmware_Flashing/CAN_Firmware_Flashing_Master/MicroTBX/tbx_crypto.h:
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/CAN_Firmware_Flashing/CAN_Firmware_Flashing_Master/LibMicroBLT/microblt.h:
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/CAN_Firmware_Flashing/CAN_Firmware_Flashing_Master/LibMicroBLT/port.h:
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/CAN_Firmware_Flashing/CAN_Firmware_Flashing_Master/App/update.h:
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/CAN_Firmware_Flashing/CAN_Firmware_Flashing_Master/App/blt_port.h:

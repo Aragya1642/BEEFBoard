@@ -27,6 +27,10 @@
 #include "stream_buffer.h"
 #include <string.h>
 #include <stdio.h>
+#include <microtbx.h>
+#include <microblt.h>
+#include "update.h"
+#include "blt_port.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -82,6 +86,16 @@ static void VcpPrint(const char *s)
 {
   HAL_UART_Transmit(&huart3, (uint8_t *)s, (uint16_t)strlen(s), HAL_MAX_DELAY);
 }
+
+/* MicroTBX assertion handler: report file/line over the VCP instead of hanging silently. */
+static void AppAssertHandler(const char * const file, uint32_t line)
+{
+  char buf[96];
+  snprintf(buf, sizeof(buf), "ASSERT %s:%lu\r\n", file, (unsigned long)line);
+  VcpPrint(buf);
+  for (;;) { /* halt for debugger inspection */ }
+}
+
 
 /* Idle-line / buffer-full RX event: push received bytes to the task, then re-arm. */
 void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
@@ -402,6 +416,8 @@ void FwUpdateTaskFunc(void *argument)
   UINT     bw;
   char     line[72];
 
+  TbxAssertSetHandler(AppAssertHandler);
+
   /* ---- One-time init: stream buffer, format + mount, arm reception ---- */
   srecStream = xStreamBufferCreate(SREC_STREAM_SIZE, 1);
 
@@ -414,7 +430,10 @@ void FwUpdateTaskFunc(void *argument)
   }
 
   (void)HAL_UARTEx_ReceiveToIdle_IT(&huart3, uartRxChunk, UART_RX_CHUNK);
-
+  
+  /* Configure FDCAN, register the LibMicroBLT port. */
+  BltPortFdcanInit();
+  
   /* ---- Per-transfer loop: accept a new app.srec on each iteration ---- */
   for (;;)
   {
@@ -483,7 +502,16 @@ void FwUpdateTaskFunc(void *argument)
 	  VcpPrint(line);
 	  f_close(&fil);
 	}
-	/* Loop back and wait for the next upload (Phase 3 hooks UpdateFirmware here). */
+
+	/* If the file arrived intact, attempt to flash the target. */
+  if (totalWritten == fileLen)
+  {
+    uint8_t updRes = UpdateFirmware("app.srec", 0U);
+    snprintf(line, sizeof(line), "UPDATE %s\r\n",
+              (updRes == TBX_OK) ? "OK" : "FAILED (connect timeout?)");
+    VcpPrint(line);
+  }
+  
   }
   /* USER CODE END 5 */
 }

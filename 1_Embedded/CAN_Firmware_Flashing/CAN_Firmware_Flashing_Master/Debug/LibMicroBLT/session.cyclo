@@ -1,0 +1,7 @@
+../LibMicroBLT/session.c:55:6:SessionInit	5
+../LibMicroBLT/session.c:83:6:SessionTerminate	4
+../LibMicroBLT/session.c:107:9:SessionStart	4
+../LibMicroBLT/session.c:133:6:SessionStop	4
+../LibMicroBLT/session.c:158:9:SessionClearMemory	5
+../LibMicroBLT/session.c:192:9:SessionWriteData	7
+../LibMicroBLT/session.c:226:9:SessionReadData	7

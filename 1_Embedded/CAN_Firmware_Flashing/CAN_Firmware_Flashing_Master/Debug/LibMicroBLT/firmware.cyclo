@@ -1,0 +1,8 @@
+../LibMicroBLT/firmware.c:54:6:FirmwareInit	5
+../LibMicroBLT/firmware.c:80:6:FirmwareTerminate	5
+../LibMicroBLT/firmware.c:109:9:FirmwareFileOpen	7
+../LibMicroBLT/firmware.c:145:6:FirmwareFileClose	5
+../LibMicroBLT/firmware.c:174:9:FirmwareSegmentGetCount	5
+../LibMicroBLT/firmware.c:210:10:FirmwareSegmentGetInfo	9
+../LibMicroBLT/firmware.c:249:6:FirmwareSegmentOpen	7
+../LibMicroBLT/firmware.c:294:17:FirmwareSegmentGetNextData	9

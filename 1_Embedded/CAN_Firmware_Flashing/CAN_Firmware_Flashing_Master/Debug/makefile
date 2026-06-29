@@ -14,11 +14,14 @@ RM := rm -rf
 -include Middlewares/Third_Party/FreeRTOS/Source/portable/Common/subdir.mk
 -include Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/subdir.mk
 -include Middlewares/Third_Party/FreeRTOS/Source/subdir.mk
+-include MicroTBX/subdir.mk
+-include LibMicroBLT/subdir.mk
 -include FatFs/subdir.mk
 -include Drivers/STM32H7xx_HAL_Driver/Src/subdir.mk
 -include Drivers/BSP/STM32H7xx_Nucleo/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/subdir.mk
+-include App/subdir.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)
@@ -59,6 +62,9 @@ default.size.stdout \
 OBJDUMP_LIST += \
 CAN_Firmware_Flashing_Master.list \
 
+OBJCOPY_SYMBOLSREC += \
+CAN_Firmware_Flashing_Master.symbolsrec \
+
 
 # All Target
 all: main-build
@@ -82,12 +88,17 @@ CAN_Firmware_Flashing_Master.list: $(EXECUTABLES) makefile objects.list $(OPTION
 	@echo 'Finished building: $@'
 	@echo ' '
 
+CAN_Firmware_Flashing_Master.symbolsrec: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objcopy  -O symbolsrec $(EXECUTABLES) "CAN_Firmware_Flashing_Master.symbolsrec"
+	@echo 'Finished building: $@'
+	@echo ' '
+
 # Other Targets
 clean:
-	-$(RM) CAN_Firmware_Flashing_Master.elf CAN_Firmware_Flashing_Master.list CAN_Firmware_Flashing_Master.map default.size.stdout
+	-$(RM) CAN_Firmware_Flashing_Master.elf CAN_Firmware_Flashing_Master.list CAN_Firmware_Flashing_Master.map CAN_Firmware_Flashing_Master.symbolsrec default.size.stdout
 	-@echo ' '
 
-secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
+secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_SYMBOLSREC)
 
 fail-specified-linker-script-missing:
 	@echo 'Error: Cannot find the specified linker script. Check the linker settings in the build configuration.'

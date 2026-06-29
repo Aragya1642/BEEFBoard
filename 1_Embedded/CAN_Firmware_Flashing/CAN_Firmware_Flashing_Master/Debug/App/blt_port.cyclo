@@ -1,0 +1,6 @@
+../App/blt_port.c:73:6:BltPortFdcanInit	1
+../App/blt_port.c:104:17:BltPortSystemGetTime	1
+../App/blt_port.c:112:16:BltPortXcpTransmitPacket	6
+../App/blt_port.c:154:16:BltPortXcpReceivePacket	6
+../App/blt_port.c:181:16:BltPortXcpComputeKeyFromSeed	10
+../App/blt_port.c:206:6:HAL_FDCAN_RxFifo0Callback	9

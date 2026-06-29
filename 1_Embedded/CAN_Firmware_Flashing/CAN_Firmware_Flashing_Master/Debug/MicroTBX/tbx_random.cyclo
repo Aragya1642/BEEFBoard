@@ -1,0 +1,5 @@
+../MicroTBX/tbx_random.c:89:10:TbxRandomNumberGet	2
+../MicroTBX/tbx_random.c:140:6:TbxRandomSetSeedInitHandler	3
+../MicroTBX/tbx_random.c:159:13:TbxRandomInitLFSRs	4
+../MicroTBX/tbx_random.c:201:17:TbxRandomShiftLFSR	4
+../MicroTBX/tbx_random.c:233:17:TbxRandomNumber16BitGet	1

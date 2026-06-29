@@ -1,0 +1,6 @@
+../App/blt_port.c:73:6:BltPortFdcanInit	48	static
+../App/blt_port.c:104:17:BltPortSystemGetTime	8	static
+../App/blt_port.c:112:16:BltPortXcpTransmitPacket	64	static
+../App/blt_port.c:154:16:BltPortXcpReceivePacket	32	static
+../App/blt_port.c:181:16:BltPortXcpComputeKeyFromSeed	32	static
+../App/blt_port.c:206:6:HAL_FDCAN_RxFifo0Callback	144	static,ignoring_inline_asm

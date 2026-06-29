@@ -1,0 +1,7 @@
+../LibMicroBLT/session.c:55:6:SessionInit	16	static
+../LibMicroBLT/session.c:83:6:SessionTerminate	8	static
+../LibMicroBLT/session.c:107:9:SessionStart	16	static
+../LibMicroBLT/session.c:133:6:SessionStop	8	static
+../LibMicroBLT/session.c:158:9:SessionClearMemory	24	static
+../LibMicroBLT/session.c:192:9:SessionWriteData	32	static
+../LibMicroBLT/session.c:226:9:SessionReadData	32	static

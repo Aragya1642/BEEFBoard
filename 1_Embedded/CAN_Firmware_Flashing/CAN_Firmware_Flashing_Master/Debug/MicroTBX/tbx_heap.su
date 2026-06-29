@@ -1,0 +1,2 @@
+../MicroTBX/tbx_heap.c:70:8:TbxHeapAllocate	32	static
+../MicroTBX/tbx_heap.c:114:8:TbxHeapGetFree	16	static

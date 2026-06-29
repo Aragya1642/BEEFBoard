@@ -1,0 +1,3 @@
+../LibMicroBLT/port.c:62:6:PortInit	24	static
+../LibMicroBLT/port.c:80:6:PortTerminate	4	static
+../LibMicroBLT/port.c:93:15:PortGet	16	static

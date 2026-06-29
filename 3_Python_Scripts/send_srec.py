@@ -12,12 +12,14 @@ data = open(path, "rb").read()          # binary mode — do NOT translate newli
 with serial.Serial(port, baud, timeout=2) as s:
     time.sleep(0.2)
     s.reset_input_buffer()
-    s.write(struct.pack("<I", len(data)))   # 4-byte LE length prefix
+    s.write(struct.pack("<I", len(data)))
     s.write(data)
     s.flush()
     print(f"sent {len(data)} bytes; waiting for response...")
-    t0 = time.time()
-    while time.time() - t0 < 10:
+    t0 = time.time()                        # start timing AFTER the send completes
+    while time.time() - t0 < 25:            # generous window for connect timeout (~5 s)
         ln = s.readline()
         if ln:
             sys.stdout.write(ln.decode(errors="replace")); sys.stdout.flush()
+            if b"UPDATE" in ln:             # stop as soon as the result prints
+                break

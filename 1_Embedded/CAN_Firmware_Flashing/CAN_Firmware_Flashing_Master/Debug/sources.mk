@@ -14,6 +14,7 @@ SIZE_OUTPUT :=
 OBJDUMP_LIST := 
 SU_FILES := 
 EXECUTABLES := 
+OBJCOPY_SYMBOLSREC := 
 OBJS := 
 MAP_FILES := 
 S_DEPS := 
@@ -22,11 +23,14 @@ C_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
+App \
 Core/Src \
 Core/Startup \
 Drivers/BSP/STM32H7xx_Nucleo \
 Drivers/STM32H7xx_HAL_Driver/Src \
 FatFs \
+LibMicroBLT \
+MicroTBX \
 Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 \
 Middlewares/Third_Party/FreeRTOS/Source \
 Middlewares/Third_Party/FreeRTOS/Source/portable/Common \

@@ -1,0 +1,2 @@
+../MicroTBX/tbx_crypto.c:61:6:TbxCryptoAes256Encrypt	128	static
+../MicroTBX/tbx_crypto.c:100:6:TbxCryptoAes256Decrypt	128	static
