@@ -14,7 +14,7 @@
 ****************************************************************************************/
 
 __attribute__((section(".ramdisk"), aligned(4)))
-static uint8_t ramDiskBuffer[RAMDISK_SIZE_BYTES];
+static BYTE ramDiskBuffer[RAMDISK_SIZE_BYTES];
 
 /************************************************************************************//**
 ** \brief     Initializes the disk drive.

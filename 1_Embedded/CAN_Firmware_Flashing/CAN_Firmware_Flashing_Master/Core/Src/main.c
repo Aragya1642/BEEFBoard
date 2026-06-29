@@ -23,7 +23,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "ff.h"
+#include <string.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -358,9 +359,46 @@ void FwUpdateTaskFunc(void *argument)
 {
   /* USER CODE BEGIN 5 */
   /* Infinite loop */
+  FATFS   fs;
+  FIL     fil;
+  BYTE    work[_MAX_SS];            /* f_mkfs work buffer (512 B) */
+  FRESULT fr;
+  UINT    bw, br;
+  char    rbuf[16] = {0};
+  const char *msg;
+
+  /* Format the RAM disk, then mount it. */
+  fr = f_mkfs("", FM_FAT, 0, work, sizeof(work));
+  if (fr == FR_OK) { fr = f_mount(&fs, "", 1); }
+
+  /* Write a test file (8.3 uppercase name; LFN is disabled). */
+  if (fr == FR_OK) { fr = f_open(&fil, "TEST.TXT", FA_CREATE_ALWAYS | FA_WRITE); }
+  if (fr == FR_OK)
+  {
+	fr = f_write(&fil, "BEEF\r\n", 6, &bw);
+	f_close(&fil);
+  }
+
+  /* Read it back. */
+  if (fr == FR_OK) { fr = f_open(&fil, "TEST.TXT", FA_READ); }
+  if (fr == FR_OK)
+  {
+	fr = f_read(&fil, rbuf, sizeof(rbuf) - 1U, &br);
+	f_close(&fil);
+  }
+
+  /* Report over the VCP (USART3 @ 115200). */
+  msg = (fr == FR_OK) ? "RAMDISK OK: " : "RAMDISK FAIL\r\n";
+  HAL_UART_Transmit(&huart3, (uint8_t *)msg, strlen(msg), HAL_MAX_DELAY);
+  if (fr == FR_OK)
+  {
+	HAL_UART_Transmit(&huart3, (uint8_t *)rbuf, br, HAL_MAX_DELAY);
+  }
+
+  /* Infinite loop */
   for(;;)
   {
-    osDelay(1);
+	osDelay(1000);
   }
   /* USER CODE END 5 */
 }

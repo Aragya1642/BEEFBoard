@@ -23,7 +23,7 @@
 /---------------------------------------------------------------------------*/
 
 #define _CODE_PAGE      437
-#define _USE_LFN        3
+#define _USE_LFN        2
 #define _MAX_LFN        255
 #define _LFN_UNICODE    0
 #define _STRF_ENCODE    3
