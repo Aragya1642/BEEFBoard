@@ -47,7 +47,8 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/CMSIS/RTOS2/Include/cmsis_os2.h \
  C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/CAN_Firmware_Flashing/CAN_Firmware_Flashing_Master/FatFs/ff.h \
  C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/CAN_Firmware_Flashing/CAN_Firmware_Flashing_Master/FatFs/integer.h \
- C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/CAN_Firmware_Flashing/CAN_Firmware_Flashing_Master/FatFs/ffconf.h
+ C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/CAN_Firmware_Flashing/CAN_Firmware_Flashing_Master/FatFs/ffconf.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/stream_buffer.h
 ../Core/Inc/main.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../Core/Inc/stm32h7xx_hal_conf.h:
@@ -98,3 +99,4 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/CAN_Firmware_Flashing/CAN_Firmware_Flashing_Master/FatFs/ff.h:
 C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/CAN_Firmware_Flashing/CAN_Firmware_Flashing_Master/FatFs/integer.h:
 C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/CAN_Firmware_Flashing/CAN_Firmware_Flashing_Master/FatFs/ffconf.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/stream_buffer.h:

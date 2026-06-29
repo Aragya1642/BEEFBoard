@@ -24,7 +24,9 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "ff.h"
+#include "stream_buffer.h"
 #include <string.h>
+#include <stdio.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -34,7 +36,10 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+#define UART_RX_CHUNK        (256U)         /* ISR idle-reception buffer size      */
+#define SREC_STREAM_SIZE     (4096U)        /* ISR->task byte FIFO (slack for f_write) */
+#define WRITE_CHUNK          (512U)         /* batch size for f_write              */
+#define SREC_MAX_FILE_SIZE   (440U * 1024U) /* reject lengths the RAM disk can't hold */
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -56,7 +61,8 @@ const osThreadAttr_t FwUpdateTask_attributes = {
   .priority = (osPriority_t) osPriorityNormal,
 };
 /* USER CODE BEGIN PV */
-
+static StreamBufferHandle_t srecStream;
+static uint8_t              uartRxChunk[UART_RX_CHUNK];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -72,7 +78,34 @@ void FwUpdateTaskFunc(void *argument);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+static void VcpPrint(const char *s)
+{
+  HAL_UART_Transmit(&huart3, (uint8_t *)s, (uint16_t)strlen(s), HAL_MAX_DELAY);
+}
 
+/* Idle-line / buffer-full RX event: push received bytes to the task, then re-arm. */
+void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
+{
+  if (huart->Instance == USART3)
+  {
+    BaseType_t woken = pdFALSE;
+    if (Size > 0U)
+    {
+      (void)xStreamBufferSendFromISR(srecStream, uartRxChunk, Size, &woken);
+    }
+    (void)HAL_UARTEx_ReceiveToIdle_IT(huart, uartRxChunk, UART_RX_CHUNK);
+    portYIELD_FROM_ISR(woken);
+  }
+}
+
+/* Recover from overrun/framing errors by re-arming reception. */
+void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart)
+{
+  if (huart->Instance == USART3)
+  {
+    (void)HAL_UARTEx_ReceiveToIdle_IT(huart, uartRxChunk, UART_RX_CHUNK);
+  }
+}
 /* USER CODE END 0 */
 
 /**
@@ -358,47 +391,99 @@ static void MX_GPIO_Init(void)
 void FwUpdateTaskFunc(void *argument)
 {
   /* USER CODE BEGIN 5 */
-  /* Infinite loop */
-  FATFS   fs;
-  FIL     fil;
-  BYTE    work[_MAX_SS];            /* f_mkfs work buffer (512 B) */
-  FRESULT fr;
-  UINT    bw, br;
-  char    rbuf[16] = {0};
-  const char *msg;
+  FATFS    fs;
+  FIL      fil;
+  BYTE     work[_MAX_SS];
+  FRESULT  fr;
+  uint8_t  hdr[4];
+  uint8_t  writeBuf[WRITE_CHUNK];
+  uint32_t fileLen, remaining, totalWritten, hdrGot;
+  size_t   got;
+  UINT     bw;
+  char     line[72];
 
-  /* Format the RAM disk, then mount it. */
+  /* ---- One-time init: stream buffer, format + mount, arm reception ---- */
+  srecStream = xStreamBufferCreate(SREC_STREAM_SIZE, 1);
+
   fr = f_mkfs("", FM_FAT, 0, work, sizeof(work));
   if (fr == FR_OK) { fr = f_mount(&fs, "", 1); }
-
-  /* Write a test file (8.3 uppercase name; LFN is disabled). */
-  if (fr == FR_OK) { fr = f_open(&fil, "TEST.TXT", FA_CREATE_ALWAYS | FA_WRITE); }
-  if (fr == FR_OK)
+  if ((srecStream == NULL) || (fr != FR_OK))
   {
-	fr = f_write(&fil, "BEEF\r\n", 6, &bw);
+	VcpPrint("INIT FAIL\r\n");
+	for (;;) { osDelay(1000); }
+  }
+
+  (void)HAL_UARTEx_ReceiveToIdle_IT(&huart3, uartRxChunk, UART_RX_CHUNK);
+
+  /* ---- Per-transfer loop: accept a new app.srec on each iteration ---- */
+  for (;;)
+  {
+	/* Discard any stray bytes so a fresh upload starts clean. */
+	(void)xStreamBufferReset(srecStream);
+	totalWritten = 0U;
+	hdrGot       = 0U;
+
+	VcpPrint("READY: send 4-byte LE length, then app.srec\r\n");
+
+	/* 1) 4-byte little-endian length header (wait indefinitely for upload). */
+	while (hdrGot < sizeof(hdr))
+	{
+	  got = xStreamBufferReceive(srecStream, &hdr[hdrGot], sizeof(hdr) - hdrGot, portMAX_DELAY);
+	  hdrGot += (uint32_t)got;
+	}
+	fileLen = (uint32_t)hdr[0]         | ((uint32_t)hdr[1] << 8) |
+			  ((uint32_t)hdr[2] << 16) | ((uint32_t)hdr[3] << 24);
+
+	if ((fileLen == 0U) || (fileLen > SREC_MAX_FILE_SIZE))
+	{
+	  snprintf(line, sizeof(line), "BAD LENGTH: %lu\r\n", (unsigned long)fileLen);
+	  VcpPrint(line);
+	  continue;                       /* back to READY for the next attempt */
+	}
+
+	/* 2) Stream the body into app.srec (CREATE_ALWAYS truncates any prior file). */
+	fr = f_open(&fil, "app.srec", FA_CREATE_ALWAYS | FA_WRITE);
+	if (fr != FR_OK)
+	{
+	  VcpPrint("OPEN FAIL\r\n");
+	  continue;
+	}
+
+	remaining = fileLen;
+	while (remaining > 0U)
+	{
+	  uint32_t want = (remaining < WRITE_CHUNK) ? remaining : WRITE_CHUNK;
+	  got = xStreamBufferReceive(srecStream, writeBuf, want, pdMS_TO_TICKS(5000));
+	  if (got == 0U)
+	  {
+		VcpPrint("RX TIMEOUT (incomplete)\r\n");
+		break;
+	  }
+	  fr = f_write(&fil, writeBuf, (UINT)got, &bw);
+	  if ((fr != FR_OK) || (bw < (UINT)got))
+	  {
+		VcpPrint("WRITE FAIL (disk full?)\r\n");
+		break;
+	  }
+	  totalWritten += (uint32_t)got;
+	  remaining    -= (uint32_t)got;
+	}
 	f_close(&fil);
-  }
 
-  /* Read it back. */
-  if (fr == FR_OK) { fr = f_open(&fil, "TEST.TXT", FA_READ); }
-  if (fr == FR_OK)
-  {
-	fr = f_read(&fil, rbuf, sizeof(rbuf) - 1U, &br);
-	f_close(&fil);
-  }
+	/* 3) Report + verify. */
+	snprintf(line, sizeof(line), "RECEIVED %lu / %lu bytes\r\n",
+			 (unsigned long)totalWritten, (unsigned long)fileLen);
+	VcpPrint(line);
 
-  /* Report over the VCP (USART3 @ 115200). */
-  msg = (fr == FR_OK) ? "RAMDISK OK: " : "RAMDISK FAIL\r\n";
-  HAL_UART_Transmit(&huart3, (uint8_t *)msg, strlen(msg), HAL_MAX_DELAY);
-  if (fr == FR_OK)
-  {
-	HAL_UART_Transmit(&huart3, (uint8_t *)rbuf, br, HAL_MAX_DELAY);
-  }
-
-  /* Infinite loop */
-  for(;;)
-  {
-	osDelay(1000);
+	if (f_open(&fil, "app.srec", FA_READ) == FR_OK)
+	{
+	  snprintf(line, sizeof(line), "VERIFY app.srec = %lu bytes %s\r\n",
+			   (unsigned long)f_size(&fil),
+			   (f_size(&fil) == fileLen) ? "OK" : "MISMATCH");
+	  VcpPrint(line);
+	  f_close(&fil);
+	}
+	/* Loop back and wait for the next upload (Phase 3 hooks UpdateFirmware here). */
   }
   /* USER CODE END 5 */
 }
