@@ -1,0 +1,5 @@
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/openblt/Target/Source/ARMCM7_STM32H7/timer.c:69:6:TimerInit	2
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/openblt/Target/Source/ARMCM7_STM32H7/timer.c:111:6:TimerReset	1
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/openblt/Target/Source/ARMCM7_STM32H7/timer.c:132:6:TimerUpdate	2
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/openblt/Target/Source/ARMCM7_STM32H7/timer.c:164:12:TimerGet	1
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/openblt/Target/Source/ARMCM7_STM32H7/timer.c:184:10:HAL_GetTick	1

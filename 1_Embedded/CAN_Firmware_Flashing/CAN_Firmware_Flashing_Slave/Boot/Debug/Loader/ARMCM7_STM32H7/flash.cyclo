@@ -1,0 +1,14 @@
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/openblt/Target/Source/ARMCM7_STM32H7/flash.c:917:18:FlashGetSectorIdx	4
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/openblt/Target/Source/ARMCM7_STM32H7/flash.c:506:17:FlashInitBlock	3
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/openblt/Target/Source/ARMCM7_STM32H7/flash.c:694:17:FlashWriteBlock	7
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/openblt/Target/Source/ARMCM7_STM32H7/flash.c:543:25:FlashSwitchBlock	6
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/openblt/Target/Source/ARMCM7_STM32H7/flash.c:611:17:FlashAddToBlock	8
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/openblt/Target/Source/ARMCM7_STM32H7/flash.c:783:17:FlashEmptyCheckSector	6
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/openblt/Target/Source/ARMCM7_STM32H7/flash.c:835:17:FlashEraseSectors	7
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/openblt/Target/Source/ARMCM7_STM32H7/flash.c:220:6:FlashInit	1
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/openblt/Target/Source/ARMCM7_STM32H7/flash.c:238:10:FlashWrite	5
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/openblt/Target/Source/ARMCM7_STM32H7/flash.c:291:10:FlashErase	3
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/openblt/Target/Source/ARMCM7_STM32H7/flash.c:338:10:FlashWriteChecksum	2
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/openblt/Target/Source/ARMCM7_STM32H7/flash.c:413:10:FlashVerifyChecksum	2
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/openblt/Target/Source/ARMCM7_STM32H7/flash.c:448:10:FlashDone	5
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/openblt/Target/Source/ARMCM7_STM32H7/flash.c:487:10:FlashGetUserProgBaseAddress	1

@@ -1,0 +1,8 @@
+../Core/Src/stm32h7xx_hal_msp.c:63:6:HAL_MspInit	8	static
+../Core/Src/stm32h7xx_hal_msp.c:85:6:HAL_ETH_MspInit	72	static
+../Core/Src/stm32h7xx_hal_msp.c:155:6:HAL_ETH_MspDeInit	8	static
+../Core/Src/stm32h7xx_hal_msp.c:199:6:HAL_FDCAN_MspInit	40	static
+../Core/Src/stm32h7xx_hal_msp.c:238:6:HAL_FDCAN_MspDeInit	8	static
+../Core/Src/stm32h7xx_hal_msp.c:267:6:HAL_PCD_MspInit	40	static
+../Core/Src/stm32h7xx_hal_msp.c:306:6:HAL_PCD_MspDeInit	8	static
+../Core/Src/stm32h7xx_hal_msp.c:333:6:HAL_MspDeInit	8	static,ignoring_inline_asm

@@ -1,0 +1,8 @@
+../App/shared_params.c:297:17:SharedParamsCalculateChecksum	0	static
+../App/shared_params.c:274:13:SharedParamsVerifyChecksum	8	static
+../App/shared_params.c:238:13:SharedParamsValidateBuffer	8	static
+../App/shared_params.c:340:13:SharedParamsFlushECC	16	static
+../App/shared_params.c:259:13:SharedParamsWriteChecksum	8	static
+../App/shared_params.c:148:6:SharedParamsInit	8	static
+../App/shared_params.c:184:6:SharedParamsReadByIndex	16	static
+../App/shared_params.c:210:6:SharedParamsWriteByIndex	16	static

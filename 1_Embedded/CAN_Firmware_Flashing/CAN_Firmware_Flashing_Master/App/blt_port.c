@@ -221,7 +221,7 @@ void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef * hfdcan, uint32_t RxFifo0ITs
           (rxHeader.Identifier == BLT_XCP_CAN_RX_ID))
       {
         /* Convert DLC code to a byte count (classic frames are <= 8). */
-        len = (uint8_t)(rxHeader.DataLength >> 16U);
+        len = (uint8_t)rxHeader.DataLength;
         if (len > BLT_XCP_CAN_MAX_LEN)
         {
           len = BLT_XCP_CAN_MAX_LEN;

@@ -1,0 +1,11 @@
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/openblt/Target/Source/com.c:524:13:ComTimeoutReset	1
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/openblt/Target/Source/com.c:471:13:ComTimeoutEnable	1
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/openblt/Target/Source/com.c:119:6:ComInit	1
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/openblt/Target/Source/com.c:265:6:ComFree	1
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/openblt/Target/Source/com.c:287:6:ComTransmitPacket	2
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/openblt/Target/Source/com.c:351:12:ComGetActiveInterfaceMaxRxLen	4
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/openblt/Target/Source/com.c:397:12:ComGetActiveInterfaceMaxTxLen	4
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/openblt/Target/Source/com.c:442:10:ComIsConnected	2
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/openblt/Target/Source/com.c:484:17:ComTimeoutDetected	4
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/openblt/Target/Source/com.c:172:6:ComTask	2
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/openblt/Target/Source/com.c:554:6:ComDeferredInit	1

@@ -1,0 +1,7 @@
+../Drivers/CMSIS/Include/core_cm7.h:2165:34:__NVIC_SystemReset	1
+../App/boot.c:326:22:CanCalculateBitTimingConfig	15
+../App/boot.c:447:13:BootComCanInit	1
+../App/boot.c:53:6:BootComInit	1
+../App/boot.c:86:6:BootActivate	0
+../App/boot.c:626:13:BootComCanCheckActivationRequest	6
+../App/boot.c:70:6:BootComCheckActivationRequest	1

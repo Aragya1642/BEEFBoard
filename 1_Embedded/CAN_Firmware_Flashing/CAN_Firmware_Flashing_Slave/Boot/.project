@@ -177,7 +177,7 @@
 	<variableList>
 		<variable>
 			<name>OPENBLT_ROOT</name>
-			<value>$%7BPARENT-3-PROJECT_LOC%7D/Source</value>
+			<value>file:/C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/openblt/Target/Source</value>
 		</variable>
 	</variableList>
 </projectDescription>

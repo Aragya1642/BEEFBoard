@@ -1,0 +1,5 @@
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/openblt/Target/Source/backdoor.c:124:6:BackDoorCheck	8	static
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/openblt/Target/Source/backdoor.c:186:6:BackDoorSetExtension	0	static
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/openblt/Target/Source/backdoor.c:199:12:BackDoorGetExtension	0	static
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/openblt/Target/Source/backdoor.c:214:6:BackDoorRestartTimer	8	static
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/openblt/Target/Source/backdoor.c:85:6:BackDoorInit	8	static

@@ -1,0 +1,16 @@
+../Library/uip/netdev.c:415:18:rxbuf_alloc	3
+../Library/uip/netdev.c:444:13:rxbuf_free	3
+../Library/uip/netdev.c:472:18:txbuf_alloc	3
+../Library/uip/netdev.c:501:13:txbuf_free	3
+../Library/uip/netdev.c:611:16:ETH_PHY_IO_DeInit	1
+../Library/uip/netdev.c:669:16:ETH_PHY_IO_GetTick	1
+../Library/uip/netdev.c:626:16:ETH_PHY_IO_ReadReg	2
+../Library/uip/netdev.c:649:16:ETH_PHY_IO_WriteReg	2
+../Library/uip/netdev.c:598:16:ETH_PHY_IO_Init	1
+../Library/uip/netdev.c:214:6:netdev_init	4
+../Library/uip/netdev.c:285:6:netdev_init_mac	1
+../Library/uip/netdev.c:297:6:netdev_get_mac	1
+../Library/uip/netdev.c:316:14:netdev_read	8
+../Library/uip/netdev.c:362:6:netdev_send	2
+../Library/uip/netdev.c:528:6:HAL_ETH_RxAllocateCallback	1
+../Library/uip/netdev.c:543:6:HAL_ETH_RxLinkCallback	6

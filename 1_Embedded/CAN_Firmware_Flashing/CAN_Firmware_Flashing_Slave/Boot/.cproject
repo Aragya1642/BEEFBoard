@@ -57,11 +57,11 @@
 									<listOptionValue builtIn="false" value="../App"/>
 									<listOptionValue builtIn="false" value="../Library/TinyUSB"/>
 									<listOptionValue builtIn="false" value="../Library/uip"/>
-									<listOptionValue builtIn="false" value="../../../../Source"/>
-									<listOptionValue builtIn="false" value="../../../../Source/ARMCM7_STM32H7"/>
-									<listOptionValue builtIn="false" value="../../../../Source/third_party/uip/apps/dhcpc"/>
-									<listOptionValue builtIn="false" value="../../../../Source/third_party/uip/uip"/>
-									<listOptionValue builtIn="false" value="../../../../Source/third_party/tinyusb/src"/>
+									<listOptionValue builtIn="false" value="../../../../openblt/Target/Source"/>
+									<listOptionValue builtIn="false" value="../../../../openblt/Target/Source/ARMCM7_STM32H7"/>
+									<listOptionValue builtIn="false" value="../../../../openblt/Target/Source/third_party/uip/apps/dhcpc"/>
+									<listOptionValue builtIn="false" value="../../../../openblt/Target/Source/third_party/uip/uip"/>
+									<listOptionValue builtIn="false" value="../../../../openblt/Target/Source/third_party/tinyusb/src"/>
 								</option>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c.1008952555" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c"/>
 							</tool>

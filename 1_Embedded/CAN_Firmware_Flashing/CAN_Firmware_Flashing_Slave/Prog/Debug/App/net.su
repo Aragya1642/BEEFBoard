@@ -1,0 +1,3 @@
+../App/net.c:67:6:NetInit	16	static
+../App/net.c:123:6:NetApp	8	static
+../App/net.c:164:6:NetTask	8	static

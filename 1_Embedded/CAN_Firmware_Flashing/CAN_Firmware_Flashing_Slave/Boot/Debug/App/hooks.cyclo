@@ -1,0 +1,3 @@
+../App/hooks.c:52:10:CpuUserProgramStartHook	2
+../App/hooks.c:85:6:CopInitHook	1
+../App/hooks.c:102:6:CopServiceHook	1

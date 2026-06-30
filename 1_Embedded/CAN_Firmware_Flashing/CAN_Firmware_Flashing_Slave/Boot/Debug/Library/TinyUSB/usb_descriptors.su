@@ -1,0 +1,6 @@
+../Library/TinyUSB/usb_descriptors.c:53:13:UniqueIdStrInit	24	static
+../Library/TinyUSB/usb_descriptors.c:125:17:tud_descriptor_device_cb	0	static
+../Library/TinyUSB/usb_descriptors.c:157:17:tud_descriptor_configuration_cb	0	static
+../Library/TinyUSB/usb_descriptors.c:194:17:tud_descriptor_bos_cb	0	static
+../Library/TinyUSB/usb_descriptors.c:224:6:tud_vendor_control_xfer_cb	8	static
+../Library/TinyUSB/usb_descriptors.c:278:17:tud_descriptor_string_cb	8	static

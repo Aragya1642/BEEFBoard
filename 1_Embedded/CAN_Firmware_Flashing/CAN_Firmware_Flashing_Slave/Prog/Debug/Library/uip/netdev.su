@@ -1,0 +1,16 @@
+../Library/uip/netdev.c:415:18:rxbuf_alloc	0	static
+../Library/uip/netdev.c:444:13:rxbuf_free	0	static
+../Library/uip/netdev.c:472:18:txbuf_alloc	0	static
+../Library/uip/netdev.c:501:13:txbuf_free	0	static
+../Library/uip/netdev.c:611:16:ETH_PHY_IO_DeInit	0	static
+../Library/uip/netdev.c:669:16:ETH_PHY_IO_GetTick	8	static
+../Library/uip/netdev.c:626:16:ETH_PHY_IO_ReadReg	8	static
+../Library/uip/netdev.c:649:16:ETH_PHY_IO_WriteReg	8	static
+../Library/uip/netdev.c:598:16:ETH_PHY_IO_Init	8	static
+../Library/uip/netdev.c:214:6:netdev_init	128	static
+../Library/uip/netdev.c:285:6:netdev_init_mac	0	static
+../Library/uip/netdev.c:297:6:netdev_get_mac	0	static
+../Library/uip/netdev.c:316:14:netdev_read	24	static
+../Library/uip/netdev.c:362:6:netdev_send	88	static
+../Library/uip/netdev.c:528:6:HAL_ETH_RxAllocateCallback	8	static
+../Library/uip/netdev.c:543:6:HAL_ETH_RxLinkCallback	8	static,ignoring_inline_asm

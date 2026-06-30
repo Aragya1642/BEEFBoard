@@ -1,0 +1,4 @@
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/openblt/Target/Source/third_party/uip/uip/uip_timer.c:64:1:timer_set	8	static
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/openblt/Target/Source/third_party/uip/uip/uip_timer.c:84:1:timer_reset	0	static
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/openblt/Target/Source/third_party/uip/uip/uip_timer.c:104:1:timer_restart	8	static
+C:/Users/aragy/Documents/git_repos/BEEFBoard/1_Embedded/openblt/Target/Source/third_party/uip/uip/uip_timer.c:121:1:timer_expired	8	static

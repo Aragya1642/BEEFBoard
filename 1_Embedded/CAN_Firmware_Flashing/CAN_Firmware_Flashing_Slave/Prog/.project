@@ -114,7 +114,7 @@
 	<variableList>
 		<variable>
 			<name>THIRDPARTY_ROOT</name>
-			<value>$%7BPARENT-3-PROJECT_LOC%7D/Source/third_party</value>
+			<value>$%7BPARENT-3-PROJECT_LOC%7D/openblt/Target/Source/third_party</value>
 		</variable>
 	</variableList>
 </projectDescription>
